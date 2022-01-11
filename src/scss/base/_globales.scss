@@ -1,0 +1,75 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: v.$negro;
+    color: v.$blanco;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    font-family: v.$fuente_principal;
+    font-size: 1.6rem;
+}
+.contenedor {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.image {
+    background-image: url(../images/pexels-rodnae-productions-7697272.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.bg-1 {
+    background-color: rgba(0, 0, 0, 0.507);
+    height: 100vh;
+}
+
+.text-centrado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    flex-direction: column;
+    @include m.tablet {
+        height: 50rem;
+    }
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.fw-bold {
+    font-weight: 600;
+}
+
+.d-flex {
+    display: flex;
+    gap: 1rem;
+}
+
+.align-center {
+    justify-content: center;
+}

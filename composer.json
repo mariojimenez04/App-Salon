@@ -1,0 +1,22 @@
+{
+    "name": "mariojimenez/app-salon-mvc",
+    "description": "Proyecto profesional PHP 8, SASS, MVC, SQL",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models",
+            "Classes\\" : "./classes"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mario",
+            "email": "mj.empresas.contacto@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.5"
+    }
+}

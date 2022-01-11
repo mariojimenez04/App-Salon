@@ -1,0 +1,10 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.btn-primary {
+    @include m.boton(v.$azul, v.$blanco);
+}
+
+.btn-secondary {
+    @include m.boton(rgb(122, 117, 117), v.$blanco);
+}
