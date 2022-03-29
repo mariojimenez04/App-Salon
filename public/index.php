@@ -29,6 +29,7 @@ $router->post('/register', [LoginController::class, 'register']);
 
 //Confirmar cuenta
 $router->get('/confirm-account', [LoginController::class, 'confirm']);
+
 $router->get('/message', [LoginController::class, 'message']);
 
 //Ruta de pagina no encontrada

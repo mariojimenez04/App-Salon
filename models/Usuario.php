@@ -25,8 +25,8 @@
             $this->telefono = $args['telefono'] ?? '';
             $this->email = $args['email'] ?? '';
             $this->password = $args['password'] ?? '';
-            $this->admin = $args['admin'] ?? '0';
-            $this->confirmado = $args['confirmado'] ?? '0';
+            $this->admin = $args['admin'] ?? 0;
+            $this->confirmado = $args['confirmado'] ?? 0;
             $this->token = $args['token'] ?? '';
         }
 
@@ -61,6 +61,25 @@
             return self::$alertas;
         }
 
+        public function validarLogin() {
+            if( !$this->email){
+                self::$alertas['error'][] = 'El email es obligatorio';
+            }
+
+            if( !$this->password){
+                self::$alertas['error'][] = 'El password es obligatorio';
+            }
+
+            return self::$alertas;
+        }
+
+        public function validarEmail(){
+            if( !$this->email){
+                self::$alertas['error'][] = 'El email es obligatorio';
+            }
+            return self::$alertas;
+        }
+
         public function existeUsuario(){
             $query = "SELECT * FROM " . self::$tabla . " WHERE email = '" . $this->email . "' LIMIT 1"; 
 
@@ -81,5 +100,16 @@
         public function crearToken()
         {
             $this->token = uniqid();
+        }
+
+        public function comprobarPassword($password) {
+
+            $resultado = password_verify($password, $this->password);
+
+                if( !$this->confirmado || !$resultado ) {
+                    self::$alertas['error'][] = 'Password incorrecto o tu cuenta no ha sido confirmada';
+                }else {
+                    return true;
+                }
         }
     }

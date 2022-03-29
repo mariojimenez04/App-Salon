@@ -5,6 +5,8 @@
 
 <form action="" method="POST" class="formulario">
 
+<?php include_once __DIR__ . "/../templates/alertas.php"; ?>
+
     <div class="campo">
         <label for="email">E-mail</label>
         <input type="email" name="email" id="email" placeholder="Tu e-mail">
