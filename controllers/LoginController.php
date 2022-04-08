@@ -94,8 +94,33 @@ class LoginController {
     }
 
     public static function recover(Router $router) {
+        $alertas = [];
 
-        $router->render('auth/recover',[]);
+        $error = false;
+
+        $token = s($_GET['token']);
+
+        $usuario = Usuario::where('token', $token);
+
+        if(empty($usuario)){
+            Usuario::setAlerta('error', 'Token no valido');
+            $error = true;
+        }
+
+        if ( $_SERVER['REQUEST_METHOD'] === 'POST'){
+            $password = new Usuario($_POST);
+            $alertas = $password->validarPassword();
+
+            if(empty($alertas)){
+                
+            }
+        }
+
+        Usuario::getAlertas();
+        $router->render('auth/recover',[
+            'alertas' => $alertas,
+            'error' => $error
+        ]);
 
     }
 
