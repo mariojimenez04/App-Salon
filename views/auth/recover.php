@@ -4,7 +4,7 @@
 
 <?php if ( $error === false) : ?>
     <p class="descripcion-pagina">Coloca tu nuevo password a continuacion</p>
-    <form action="" class="formulario">
+    <form action="" class="formulario" method="POST">
 
         <div class="campo">
             <label for="password">Password</label>
